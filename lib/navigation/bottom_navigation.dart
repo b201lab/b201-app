@@ -60,17 +60,15 @@ class BottomNavigation extends StatelessWidget {
         ),
         child: SafeArea(
           child: Stack(
+            alignment: Alignment.bottomCenter,
             children: [
-              Positioned(
-                left: 132,
-                top: 70,
-                child: Container(
-                  height: 8,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+              Container(
+                margin: EdgeInsets.only(bottom: 5),
+                height: 5,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
                 ),
               ),
               Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 var primaryColor = Color(0xFFFF0000);
-var profileTextStyle = TextStyle(fontSize: 16,fontWeight: FontWeight.bold);
+var profileTextStyle = TextStyle(fontSize: 14, fontWeight: FontWeight.bold);
 var homeListTextStyle1 = TextStyle(
   color: Colors.white,
   fontSize: 24,
