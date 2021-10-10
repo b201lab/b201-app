@@ -37,8 +37,8 @@ class BottomNavigation extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         bottom: 10,
-        left: 15,
-        right: 15,
+        left: 10,
+        right: 10,
       ),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -65,7 +65,7 @@ class BottomNavigation extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 5),
                 height: 5,
-                width: 100,
+                width: 120,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
