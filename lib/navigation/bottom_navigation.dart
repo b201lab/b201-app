@@ -44,12 +44,7 @@ class BottomNavigation extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
           color: bgColor,
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(40),
-            bottomRight: Radius.circular(40),
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-          ),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             if (showElevation)
               const BoxShadow(
@@ -62,15 +57,6 @@ class BottomNavigation extends StatelessWidget {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 5),
-                height: 5,
-                width: 120,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
               Container(
                 width: double.infinity,
                 height: containerHeight,
