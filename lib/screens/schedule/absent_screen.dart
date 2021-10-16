@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
-class Absent extends StatefulWidget {
-  const Absent({ Key? key }) : super(key: key);
+class AbsentScreen extends StatefulWidget {
+  const AbsentScreen({ Key? key }) : super(key: key);
 
   @override
-  _AbsentState createState() => _AbsentState();
+  _AbsentScreenState createState() => _AbsentScreenState();
 }
 
-class _AbsentState extends State<Absent> {
+class _AbsentScreenState extends State<AbsentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
