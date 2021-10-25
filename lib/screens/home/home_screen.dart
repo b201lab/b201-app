@@ -1,5 +1,6 @@
 import 'package:b201_app/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -93,6 +94,126 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(
+            height: 15,
+          ),
+          DefaultTabController(
+              length: 4,
+              initialIndex: 0,
+              child: PreferredSize(
+                preferredSize: new Size(50, 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      child: TabBar(
+                        labelColor: Colors.white,
+                        labelPadding: EdgeInsets.symmetric(
+                          horizontal: 5,
+                        ),
+                        unselectedLabelColor: Colors.black,
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        indicator: BubbleTabIndicator(
+                            indicatorHeight: 25.0,
+                            indicatorColor: Colors.redAccent,
+                            tabBarIndicatorSize: TabBarIndicatorSize.tab),
+                        tabs: [
+                          Tab(
+                            child: Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                      color: Colors.redAccent, width: 1)),
+                              child: Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'NEWS',
+                                    textScaleFactor: 1,
+                                  )),
+                            ),
+                          ),
+                          Tab(
+                            child: Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                      color: Colors.redAccent, width: 1)),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('PROJECTS'),
+                              ),
+                            ),
+                          ),
+                          Tab(
+                            child: Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                      color: Colors.redAccent, width: 1)),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text('ASLAB'),
+                              ),
+                            ),
+                          ),
+                          Tab(
+                            child: Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  border: Border.all(
+                                      color: Colors.redAccent, width: 1)),
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  'ABOUT',
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height -
+                          305.0, //PENTING BANGET DECLARE UKURAN
+                      child: TabBarView(children: <Widget>[
+                        Container(
+                          child: Center(
+                            child: Text('Display Tab 1',
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                        Container(
+                          child: Center(
+                            child: Text('Display Tab 2',
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                        Container(
+                          child: Center(
+                            child: Text('Display Tab 3',
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                        Container(
+                          child: Center(
+                            child: Text('Display Tab 4',
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                      ]),
+                    )
+                  ],
+                ),
+              )),
         ],
       ),
     );
