@@ -97,15 +97,14 @@ class HomeScreen extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          DefaultTabController(
-              length: 4,
-              initialIndex: 0,
-              child: PreferredSize(
-                preferredSize: new Size(50, 10),
+          Expanded(
+            child: DefaultTabController(
+                length: 4,
+                initialIndex: 0,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: TabBar(
                         labelColor: Colors.white,
                         labelPadding: EdgeInsets.symmetric(
@@ -115,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                         indicatorSize: TabBarIndicatorSize.tab,
                         indicator: BubbleTabIndicator(
                             indicatorHeight: 25.0,
-                            indicatorColor: Colors.redAccent,
+                            indicatorColor: primaryColor,
                             tabBarIndicatorSize: TabBarIndicatorSize.tab),
                         tabs: [
                           Tab(
@@ -124,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   border: Border.all(
-                                      color: Colors.redAccent, width: 1)),
+                                      color: primaryColor, width: 1)),
                               child: Align(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -139,7 +138,7 @@ class HomeScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   border: Border.all(
-                                      color: Colors.redAccent, width: 1)),
+                                      color: primaryColor, width: 1)),
                               child: Align(
                                 alignment: Alignment.center,
                                 child: Text('PROJECTS'),
@@ -152,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   border: Border.all(
-                                      color: Colors.redAccent, width: 1)),
+                                      color: primaryColor, width: 1)),
                               child: Align(
                                 alignment: Alignment.center,
                                 child: Text('ASLAB'),
@@ -165,7 +164,7 @@ class HomeScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
                                   border: Border.all(
-                                      color: Colors.redAccent, width: 1)),
+                                      color: primaryColor, width: 1)),
                               child: Align(
                                 alignment: Alignment.center,
                                 child: Text(
@@ -177,9 +176,7 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height -
-                          305.0, //PENTING BANGET DECLARE UKURAN
+                    Expanded(
                       child: TabBarView(children: <Widget>[
                         Container(
                           child: Center(
@@ -212,8 +209,8 @@ class HomeScreen extends StatelessWidget {
                       ]),
                     )
                   ],
-                ),
-              )),
+                )),
+          ),
         ],
       ),
     );

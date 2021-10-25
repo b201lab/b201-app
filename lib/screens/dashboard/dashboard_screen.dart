@@ -28,6 +28,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 color: Colors.white,
                 image: DecorationImage(
                   fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
                   image: AssetImage(
                     controller.tabIndex == 0
                         ? 'assets/images/background_vector.png'
@@ -49,6 +50,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
               bottomNavigationBar: BottomNavigation(
+                animationDuration: Duration(milliseconds: 600),
                 containerHeight: 85,
                 backgroundColor: primaryColor,
                 selectedIndex: controller.tabIndex,
