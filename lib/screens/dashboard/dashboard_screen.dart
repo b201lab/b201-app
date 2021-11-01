@@ -28,7 +28,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 color: Colors.white,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.bottomCenter,
                   image: AssetImage(
                     controller.tabIndex == 0
                         ? 'assets/images/background_vector.png'

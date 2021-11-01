@@ -93,7 +93,7 @@ class _CalendarState extends State<Calendar> {
           ),
         ),
         // Event List
-        Text(DateFormat('kk:mm').format(DateTime.now())),
+        // Text(DateFormat('kk:mm').format(DateTime.now())),
       ],
     );
   }

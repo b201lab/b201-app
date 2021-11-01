@@ -1,3 +1,4 @@
+import 'package:b201_app/components/components.dart';
 import 'package:b201_app/screens/schedule/absent_screen.dart';
 import 'package:b201_app/screens/schedule/calendar.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +13,18 @@ class ScheduleScreen extends StatelessWidget {
       child: Column(
         children: [
           Calendar(),
-          IconButton(onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_) {
-              return AbsentScreen();
-            }));
-          }, 
-          icon: Icon(Icons.add))
+          Align(
+            alignment: Alignment.bottomRight,
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return AbsentScreen();
+                }));
+              },
+              icon: Icon(Icons.add),
+              color: primaryColor,
+            ),
+          )
         ],
       ),
     );

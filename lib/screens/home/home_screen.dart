@@ -178,25 +178,37 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: TabBarView(children: <Widget>[
-                        Container(
-                          child: Center(
-                            child: Text('Display Tab 1',
-                                style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(40, 5, 40, 0),
+                          child: SingleChildScrollView(
+                            child: TabContent(
+                              asset: 'assets/images/news.png',
+                              title: 'BREAKING NEWS',
+                              content:
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+                            ),
                           ),
                         ),
-                        Container(
-                          child: Center(
-                            child: Text('Display Tab 2',
-                                style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(40, 5, 40, 0),
+                          child: SingleChildScrollView(
+                            child: TabContent(
+                              asset: 'assets/images/project.jpg',
+                              title: 'Proyek “Drone App” dari Pak Atar',
+                              content:
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+                            ),
                           ),
                         ),
-                        Container(
-                          child: Center(
-                            child: Text('Display Tab 3',
-                                style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.bold)),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(40, 5, 40, 0),
+                          child: SingleChildScrollView(
+                            child: TabContent(
+                              asset: 'assets/images/aslab.jpg',
+                              title: 'AsLabs through the years',
+                              content:
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore',
+                            ),
                           ),
                         ),
                         Container(
@@ -213,6 +225,56 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class TabContent extends StatelessWidget {
+  const TabContent({
+    Key? key,
+    required this.asset,
+    required this.title,
+    required this.content,
+  }) : super(key: key);
+
+  final String asset;
+  final String title;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          height: 170,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(asset),
+            ),
+          ),
+        ),
+        SizedBox(height: 15),
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(
+          content,
+          textAlign: TextAlign.justify,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ],
     );
   }
 }
