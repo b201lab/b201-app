@@ -1,5 +1,6 @@
 import 'package:b201_app/screens/dashboard/dashboard_binding.dart';
 import 'package:b201_app/screens/dashboard/dashboard_screen.dart';
+import 'package:b201_app/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +15,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(
-          name: '/', page: () => DashboardScreen(),
+          name: '/',
+          page: () => LoginScreen(),
+        ),
+        GetPage(
+          name: '/home',
+          page: () => DashboardScreen(),
           binding: DashboardBinding(),
         )
       ],
