@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:b201_app/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class AddNews extends StatelessWidget {
-  const AddNews({Key? key}) : super(key: key);
+class AddArticle extends StatelessWidget {
+  const AddArticle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +85,16 @@ class AddNews extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 20),
+                Text(
+                  'Upload Gambar',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 5),
+                UploadImages(),
                 SizedBox(height: 30),
                 InkWell(
                   onTap: () {},
@@ -155,6 +168,82 @@ class _DropdownCategoryState extends State<DropdownCategory> {
             }).toList(),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class UploadImages extends StatefulWidget {
+  const UploadImages({Key? key}) : super(key: key);
+
+  @override
+  _UploadImagesState createState() => _UploadImagesState();
+}
+
+class _UploadImagesState extends State<UploadImages> {
+  var length = 1;
+  var imgFile;
+  List<File> imgListFile = [];
+
+  Future pickImg(ImageSource source) async {
+    final pickedFile = await ImagePicker().pickImage(source: source);
+    setState(() {
+      if (pickedFile != null) {
+        imgFile = File(pickedFile.path);
+        imgListFile.add(imgFile);
+        imgFile = null;
+      }
+    });
+    return imgFile;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 80,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          // Display image in list
+          if (imgListFile.isNotEmpty)
+            for (File img in imgListFile)
+              Container(
+                  margin: EdgeInsets.only(right: 20),
+                  height: double.infinity,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 3,
+                      color: Colors.grey.withOpacity(0.5),
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Image.file(img)),
+
+          // Add image icon
+          Container(
+            margin: EdgeInsets.only(right: 20),
+            height: double.infinity,
+            width: 80,
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 3,
+                color: Colors.grey.withOpacity(0.5),
+              ),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: InkWell(
+              onTap: () {
+                pickImg(ImageSource.gallery);
+              },
+              child: Icon(
+                Icons.add,
+                size: 35,
+                color: Colors.grey.withOpacity(0.5),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

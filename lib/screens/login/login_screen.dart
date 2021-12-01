@@ -1,5 +1,4 @@
 import 'package:b201_app/components/components.dart';
-import 'package:b201_app/screens/dashboard/dashboard_screen.dart';
 import 'package:b201_app/screens/login/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

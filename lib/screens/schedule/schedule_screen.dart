@@ -1,5 +1,4 @@
 import 'package:b201_app/components/components.dart';
-import 'package:b201_app/screens/login/login_screen.dart';
 import 'package:b201_app/screens/schedule/absent_screen.dart';
 import 'package:b201_app/screens/schedule/calendar.dart';
 import 'package:flutter/material.dart';
