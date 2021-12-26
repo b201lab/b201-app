@@ -334,9 +334,7 @@ class _TabContentState extends State<TabContent> {
                   },
                 ).toList(),
                 onPageChanged: (index) {
-                  setState(() {
-                    index;
-                  });
+                  setState(() => index);
                 },
               ),
               SizedBox(height: 15),

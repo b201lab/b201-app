@@ -1,4 +1,5 @@
 import 'package:b201_app/components/components.dart';
+import 'package:b201_app/screens/schedule/absent_screen.dart';
 import 'package:b201_app/screens/schedule/events.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -51,12 +52,47 @@ class _CalendarState extends State<Calendar> {
           ),
           child: Column(
             children: [
-              Text(
-                DateFormat('EEEE').format(_selectedDay).toUpperCase(),
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    DateFormat('EEEE').format(_selectedDay).toUpperCase(),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  //       return AbsentScreen();
+                  //     }));
+                  //   },
+                  //   child: Container(
+                  //     padding:
+                  //         EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                  //     alignment: Alignment.center,
+                  //     decoration: BoxDecoration(
+                  //       color: primaryColor,
+                  //       borderRadius: BorderRadius.circular(50),
+                  //     ),
+                  //     child: Row(
+                  //       children: [
+                  //         Icon(
+                  //           Icons.add,
+                  //           color: Colors.white,
+                  //         ),
+                  //         SizedBox(width: 5),
+                  //         Text(
+                  //           'Add Event',
+                  //           style: TextStyle(color: Colors.white),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                ],
               ),
               TableCalendar(
                 focusedDay: _focusedDay,

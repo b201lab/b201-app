@@ -65,9 +65,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                   },
                 ).toList(),
                 onPageChanged: (index) {
-                  setState(() {
-                    index;
-                  });
+                  setState(() => index);
                 },
               ),
               SizedBox(height: 20),

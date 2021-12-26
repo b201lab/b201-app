@@ -13,16 +13,52 @@ class ScheduleScreen extends StatelessWidget {
       child: Column(
         children: [
           Calendar(),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: IconButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return AbsentScreen();
-                }));
-              },
-              icon: Icon(Icons.add),
-              color: primaryColor,
+          SizedBox(height: 20),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Stack(
+                children: [
+                  // Add Event Button
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AbsentScreen()));
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  // List Events
+                  ListView(
+                    children: [
+                      for (var i = 5; i < 10; i++)
+                        Container(
+                          margin: EdgeInsets.only(bottom: 15),
+                          width: double.infinity,
+                          height: 90,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: primaryColor),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                    ],
+                  )
+                ],
+              ),
             ),
           )
         ],
