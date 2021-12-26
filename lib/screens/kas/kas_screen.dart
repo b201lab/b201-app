@@ -1,10 +1,17 @@
+import 'package:b201_app/models/users.dart';
 import 'package:b201_app/widgets/kas_list_card.dart';
 import 'package:flutter/material.dart';
 
 const bool isAdmin = true;
 
-class KasScreen extends StatelessWidget {
+class KasScreen extends StatefulWidget {
   const KasScreen({Key? key}) : super(key: key);
+  @override
+  State<KasScreen> createState() => _KasScreenState();
+}
+
+class _KasScreenState extends State<KasScreen> {
+  List<User> _users = users;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +29,18 @@ class KasScreen extends StatelessWidget {
                     ),
                     margin: EdgeInsets.only(bottom: 20),
                   ),
-                  KasListCard(
-                    nama: "Dwi Ari Setiawan",
-                    terakhirBayar: "17 Agustus 2021",
-                    statusLunas: true,
-                  ),
-                  KasListCard(
-                    nama: "Arshad Tareeq B",
-                    terakhirBayar: "18 Agustus 2021",
-                    statusLunas: false,
-                  ),
+                  Expanded(
+                    child: ListView(
+                      children: [
+                        for (User user in users)
+                          KasListCard(
+                            nama: user.name,
+                            terakhirBayar: user.lastPayement,
+                            statusLunas: user.isLunas,
+                          ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
