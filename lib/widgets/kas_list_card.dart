@@ -1,14 +1,13 @@
+import 'package:b201_app/models/users.dart';
+import 'package:b201_app/screens/kas/kas_edit_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class KasListCard extends StatefulWidget {
-  final String terakhirBayar;
-  final String nama;
-  final bool statusLunas;
-  const KasListCard(
-      {Key? key,
-      required this.nama,
-      required this.terakhirBayar,
-      required this.statusLunas})
+  // final bool statusLunas;
+  final User user;
+  final onUpdateUser;
+  const KasListCard({Key? key, required this.user, required this.onUpdateUser})
       : super(key: key);
 
   @override
@@ -52,12 +51,12 @@ class _KasListCardState extends State<KasListCard> {
                                     height: 10,
                                     margin: EdgeInsets.only(right: 8),
                                     decoration: BoxDecoration(
-                                        color: (widget.statusLunas)
+                                        color: (widget.user.isLunas)
                                             ? Colors.green
                                             : Colors.red,
                                         shape: BoxShape.circle),
                                   ),
-                                  (widget.statusLunas)
+                                  (widget.user.isLunas)
                                       ? Text("Lunas")
                                       : Text("Belum Lunas")
                                 ],
@@ -69,12 +68,18 @@ class _KasListCardState extends State<KasListCard> {
                         Row(
                           children: [
                             Text(
-                              widget.nama,
+                              widget.user.name,
                               style: TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w600),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                print("going to this hti");
+                                Get.to(KasEditScreen(
+                                  user: widget.user,
+                                  onUpdateUser: widget.onUpdateUser,
+                                ));
+                              },
                               child: Container(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),

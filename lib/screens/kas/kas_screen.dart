@@ -13,6 +13,19 @@ class KasScreen extends StatefulWidget {
 class _KasScreenState extends State<KasScreen> {
   List<User> _users = users;
 
+  // void onKasChange(user) {
+  //   setState(() {
+  //     List<User> newUsers;
+
+  //     _users = newUsers;
+  //   });
+  // }
+  void updateUsers(User newUser) {
+    setState(() {
+      _users[_users.indexWhere((user) => user.id == newUser.id)] = newUser;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,12 +45,8 @@ class _KasScreenState extends State<KasScreen> {
                   Expanded(
                     child: ListView(
                       children: [
-                        for (User user in users)
-                          KasListCard(
-                            nama: user.name,
-                            terakhirBayar: user.lastPayement,
-                            statusLunas: user.isLunas,
-                          ),
+                        for (User user in _users)
+                          KasListCard(user: user, onUpdateUser: updateUsers),
                       ],
                     ),
                   )
